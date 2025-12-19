@@ -1,0 +1,190 @@
+export default function GlobalStyles() {
+  return (
+    <style>{`
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        overflow-x: hidden;
+      }
+      
+      ::selection {
+        background: #0066FF;
+        color: white;
+      }
+      
+      .gradient-text {
+        background: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .hover-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 102, 255, 0.15);
+      }
+
+      .hover-lift--bg, .hover-lift--content , .hover-lift--know-more{
+        transition: all .6s ease;
+      }
+
+      .hover-lift:hover .hover-lift--bg {
+        filter: none !important;
+        zoom: 1.1 !important;
+        
+      }
+
+      .hover-lift:hover .hover-lift--content{
+        opacity: 0 !important;
+      }
+
+      .hover-lift:hover .hover-lift--know-more{
+        color: #fff !important;
+        padding: 12px;
+        border-radius: 8px;
+        background: rgba(0, 102, 255, 1);
+        transform: translateY(-10px);
+        box-shadow: .5px .5px 2px rgba(255, 255, 255, 1);
+      }
+
+   
+      
+      .btn-primary {
+        background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
+        color: white;
+        border: none;
+        padding: 16px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);
+      }
+      
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 14px 30px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: white;
+      }
+      
+      input, textarea {
+        width: 100%;
+        padding: 16px 20px;
+        border: 2px solid #E2E8F0;
+        border-radius: 12px;
+        font-size: 16px;
+        font-family: inherit;
+        transition: all 0.3s ease;
+        background: white;
+      }
+      
+      input:focus, textarea:focus {
+        outline: none;
+        border-color: #0066FF;
+        box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+      }
+      
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+        50% { box-shadow: 0 0 40px rgba(37, 211, 102, 0.6); }
+      }
+      
+      @media (max-width: 1024px) {
+        .hero-grid, .about-grid, .contact-grid {
+          grid-template-columns: 1fr !important;
+          gap: 48px !important;
+        }
+        
+        .hero-image {
+          order: -1;
+        }
+        
+        .testimonial-nav {
+          display: none !important;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .desktop-nav, .header-cta {
+          display: none !important;
+        }
+        
+        .mobile-menu-btn {
+          display: block !important;
+        }
+        
+        section {
+          padding: 80px 20px !important;
+        }
+      }
+
+
+      @media (max-width: 600px) {
+        #experience-badge{
+          right: 30px !important;
+        }
+
+        .contact-cards{
+          padding: 10px !important;
+
+        }
+      }
+
+      @media (max-width: 450px) {
+        #tech-img-container{
+          width: 330px !important;
+          
+        }
+        .contact-form{
+          padding: 20px !important;}
+        }
+      
+    `}</style>
+  );
+}
