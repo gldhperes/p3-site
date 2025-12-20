@@ -290,7 +290,7 @@ export default function Eventos() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
         {features.map((feature, index) => (
           <div key={index} style={{ ...styles.card, padding: '2rem' }}>
-            <div style={{ width: '3.5rem', height: '3.5rem', backgroundColor: 'rgba(59, 130, 246, 0.2)', borderRadius: '0.75rem', display: 'flex', alignItems: 'center', justifyCenter: 'center', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ width: '3.5rem', height: '3.5rem', backgroundColor: 'rgba(59, 130, 246, 0.2)', borderRadius: '0.75rem', display: 'flex', alignItems: 'center', justifyCenter: 'center', marginBottom: '1.5rem' }}>
               <feature.icon size={28} color="#60a5fa" />
             </div>
             <h3 style={{ color: 'white', fontSize: '1.125rem', marginBottom: '0.75rem' }}>{feature.title}</h3>
