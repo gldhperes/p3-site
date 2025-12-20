@@ -101,26 +101,7 @@ const Header = () => {
             >
               {item.text}
             </a>
-            // <button
-            //   key={item.text}
-
-            //   style={{
-            //     background: 'none',
-            //     border: 'none',
-            //     color: 'rgba(255,255,255,0.8)',
-            //     fontSize: 15,
-            //     fontWeight: 500,
-            //     cursor: 'pointer',
-            //     transition: 'color 0.3s ease',
-            //     fontFamily: 'inherit'
-            //   }}
-            //   onMouseEnter={(e) => e.target.style.color = 'white'}
-            //   onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.8)'}
-            // >
-            //   {item.text}
-            // </button>
-          ))
-          }
+          ))}
         </nav>
 
         {/* Header CTA */}
@@ -175,39 +156,23 @@ const Header = () => {
               padding: '24px',
               display: 'flex',
               flexDirection: 'column',
-              gap: 16
+              gap: 16,
+              marginTop: 10,
             }}
           >
-            {/* {navItems.map((item) => (
-              <button
-                key={item}
-                onClick={() => handleNavClick(item.toLowerCase().replace(' ', '-'))}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: 'white',
-                  fontSize: 18,
-                  fontWeight: 500,
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                  padding: '12px 0',
-                  borderBottom: '1px solid rgba(255,255,255,0.1)',
-                  fontFamily: 'inherit'
-                }}
-              >
-                {item}
-              </button> */}
-
             {navItems.map((item, index) => (
               <a
                 key={index}
-                href={item?.href}
-                // target='_blank'
-                style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}
+                onClick={() => handleNavClick(item.href.toLowerCase())}
+                style={{ display: 'flex', alignItems: 'flex-start', gap: 12, color: 'rgba(255,255,255,0.7)', cursor: 'pointer' }}
+                onMouseEnter={(e) => e.target.style.color = 'white'}
+                onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.7)'}
               >
-                {item}
+                {item.text}
               </a>
             ))}
+
+
             <button
               className="btn-primary"
               onClick={() => handleNavClick('contato')}
