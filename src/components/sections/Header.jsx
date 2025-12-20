@@ -4,11 +4,11 @@ import { Shield, Phone, Menu, X } from 'lucide-react';
 
 // UTILS
 import scrollToSectionFunc from '../../utils/scrollToSection.js';
+import contacts from '../../utils/contacts.js';
+import navItems from '../../utils/navItems.js';
+import navRoutes from '../../utils/routes.js';
 
-
-const navItems = ['Início', 'Sobre Nós', 'Serviços', 'Eventos', 'Contato'];
-
-export default function Header({ scrollToSection }) {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -21,8 +21,15 @@ export default function Header({ scrollToSection }) {
   }, []);
 
   const handleNavClick = (section) => {
-    scrollToSectionFunc(section);
-    setIsMenuOpen(false);
+    console.log(section);
+
+    if (section === navRoutes.eventos) {
+      window.location.href = navRoutes.eventos.toLowerCase();
+    }
+    else {
+      scrollToSectionFunc(section);
+      setIsMenuOpen(false);
+    }
   };
 
   return (
@@ -33,9 +40,10 @@ export default function Header({ scrollToSection }) {
         position: 'fixed',
         top: 0,
         left: 0,
-        right: 0,
+        width: '100%',
+        // right: 0,
         zIndex: 1000,
-        padding: '16px 0',
+        padding: '16px 8px',
         background: isScrolled ? 'rgba(10, 37, 64, 0.95)' : 'transparent',
         backdropFilter: isScrolled ? 'blur(20px)' : 'none',
         transition: 'all 0.3s ease'
@@ -83,31 +91,41 @@ export default function Header({ scrollToSection }) {
           alignItems: 'center',
           gap: 40
         }} className="desktop-nav">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => handleNavClick(item.toLowerCase().replace(' ', '-'))}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'rgba(255,255,255,0.8)',
-                fontSize: 15,
-                fontWeight: 500,
-                cursor: 'pointer',
-                transition: 'color 0.3s ease',
-                fontFamily: 'inherit'
-              }}
+          {navItems.map((item, index) => (
+            <a
+              key={index}
+              onClick={() => handleNavClick(item.href.toLowerCase())}
+              style={{ display: 'flex', alignItems: 'flex-start', gap: 12, color: 'rgba(255,255,255,0.7)', cursor: 'pointer' }}
               onMouseEnter={(e) => e.target.style.color = 'white'}
-              onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.8)'}
+              onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.7)'}
             >
-              {item}
-            </button>
-          ))}
+              {item.text}
+            </a>
+            // <button
+            //   key={item.text}
+
+            //   style={{
+            //     background: 'none',
+            //     border: 'none',
+            //     color: 'rgba(255,255,255,0.8)',
+            //     fontSize: 15,
+            //     fontWeight: 500,
+            //     cursor: 'pointer',
+            //     transition: 'color 0.3s ease',
+            //     fontFamily: 'inherit'
+            //   }}
+            //   onMouseEnter={(e) => e.target.style.color = 'white'}
+            //   onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.8)'}
+            // >
+            //   {item.text}
+            // </button>
+          ))
+          }
         </nav>
 
         {/* Header CTA */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }} className="header-cta">
-          <a href="tel:+5511999999999" style={{
+          <a href={contacts[0].href} style={{
             display: 'flex',
             alignItems: 'center',
             gap: 8,
@@ -117,7 +135,7 @@ export default function Header({ scrollToSection }) {
             fontWeight: 500
           }}>
             <Phone size={18} />
-            <span>(85) 3241-4654</span>
+            <span>{contacts[0].text}</span>
           </a>
           <button
             className="btn-primary"
@@ -160,7 +178,7 @@ export default function Header({ scrollToSection }) {
               gap: 16
             }}
           >
-            {navItems.map((item) => (
+            {/* {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => handleNavClick(item.toLowerCase().replace(' ', '-'))}
@@ -178,7 +196,17 @@ export default function Header({ scrollToSection }) {
                 }}
               >
                 {item}
-              </button>
+              </button> */}
+
+            {navItems.map((item, index) => (
+              <a
+                key={index}
+                href={item?.href}
+                // target='_blank'
+                style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}
+              >
+                {item}
+              </a>
             ))}
             <button
               className="btn-primary"
@@ -193,3 +221,5 @@ export default function Header({ scrollToSection }) {
     </motion.header>
   );
 }
+
+export default Header;

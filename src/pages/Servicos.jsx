@@ -7,6 +7,7 @@ import { CheckCircle, ArrowLeft, ArrowRight, Phone } from 'lucide-react';
 // UTILS
 import scrollToSectionFunc from '../utils/scrollToSection';
 import services from '../utils/services';
+import contacts from '../utils/contacts';
 
 // Definição dos estilos CSS puros
 const styles = {
@@ -143,7 +144,7 @@ const styles = {
     marginBottom: '2rem', // mb-8
     maxWidth: '36rem', // max-w-xl
   },
-  
+
   buttonGroup: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -277,7 +278,7 @@ const styles = {
     paddingBottom: '5rem', // py-20
     backgroundColor: '#0a1628', // bg-[#0a1628]
   },
-  
+
   benefitsGrid: {
     display: 'flex',
     flexFlow: 'row wrap',
@@ -405,7 +406,7 @@ const Servico = () => {
   const route = useParams();
   const serviceId = route.id;
   const service = services.find(s => s.link === serviceId);
-  const Icon = service.icon;
+  // const Icon = service.icon;
 
 
   useEffect(() => {
@@ -433,15 +434,12 @@ const Servico = () => {
           <div>
             <div style={styles.heroGrid}>
               <div>
-                <Link
-                  to={'/'}
-                  style={{ ...styles.linkBack, ...styles.linkBackHover }} // Simulação de hover
-                >
+                <Link to={'/'} style={{ ...styles.linkBack, ...styles.linkBackHover }}>
                   <ArrowLeft style={{ width: '1rem', height: '1rem' }} />
                   Voltar para Home
                 </Link>
 
-                <h1  style={styles.title}>
+                <h1 style={styles.title}>
                   {service.title}
                 </h1>
                 <p style={styles.subtitle}>
@@ -455,14 +453,16 @@ const Servico = () => {
                   <button
                     style={{ ...styles.buttonPrimary, ...styles.buttonPrimaryHover }} // Simulação de hover
                   >
-                    Solicitar Orçamento
+                    <Link to={"/"} style={{ color: 'inherit' }}>Solicitar Orçamento</Link>
+
                     <ArrowRight style={{ marginLeft: '0.5rem', width: '1.25rem', height: '1.25rem', transitionProperty: 'transform', transitionDuration: '150ms' }} />
                   </button>
                   <button
                     style={{ ...styles.buttonOutline, ...styles.buttonOutlineHover }} // Simulação de hover
                   >
                     <Phone style={{ marginRight: '0.5rem', width: '1.25rem', height: '1.25rem' }} />
-                    (85) 3241-4654
+                    {/* (85) 3241-4654 */}
+                    <a href={contacts[0].href} style={{ color: 'inherit' }}>{contacts[0].text}</a>
                   </button>
                 </div>
               </div>

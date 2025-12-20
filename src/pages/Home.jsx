@@ -4,9 +4,6 @@ import ServicesSection from '../components/sections/ServicesSection.jsx';
 import AboutSection from '../components/sections/AboutSection.jsx';
 import TestimonialsSection from '../components/sections/TestimonialsSection.jsx';
 import ContactSection from '../components/sections/ContactSection.jsx';
-import Footer from '../components/sections/Footer.jsx';
-import WhatsAppButton from '../components/sections/WhatsAppButton.jsx';
-import GlobalStyles from '../components/sections/GlobalStyles.jsx';
 
 export default function Home() {
 
@@ -19,7 +16,6 @@ export default function Home() {
       <ServicesSection />
       <TestimonialsSection />
       <ContactSection />
-      <WhatsAppButton />
     </>
   );
 }

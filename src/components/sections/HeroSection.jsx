@@ -1,14 +1,18 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Camera, ArrowRight } from 'lucide-react';
 
-export default function HeroSection() {
+// UTILS
+import navItems from '../../utils/navItems.js';
+
+
+
+const HeroSection = () => {
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="início" style={{
+    <section id={navItems[0].href} style={{
       minHeight: '100vh',
       background: 'linear-gradient(135deg, #0A2540 0%, #0D3A5C 50%, #0A2540 100%)',
       position: 'relative',
@@ -249,3 +253,5 @@ export default function HeroSection() {
     </section>
   );
 }
+
+export default HeroSection;

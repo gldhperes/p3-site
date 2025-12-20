@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
+
 const depoimentos = [
   {
     nome: 'Carlos Eduardo',
@@ -26,7 +27,7 @@ const depoimentos = [
   }
 ];
 
-export default function TestimonialsSection() {
+const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const nextTestimonial = () => {
@@ -38,7 +39,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section id="depoimentos" style={{
+    <section style={{
       padding: '120px 24px',
       background: 'linear-gradient(135deg, #0A2540 0%, #0D3A5C 100%)',
       position: 'relative',
@@ -239,3 +240,5 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+
+export default TestimonialsSection;

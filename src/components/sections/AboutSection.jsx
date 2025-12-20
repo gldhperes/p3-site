@@ -1,6 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, Clock, CheckCircle } from 'lucide-react';
+
+// Utils
+import navItems from '../../utils/navItems';
+
 
 const diferenciais = [
   { icon: Award, titulo: '+15 Anos', descricao: 'de experiência no mercado' },
@@ -9,11 +12,12 @@ const diferenciais = [
   { icon: CheckCircle, titulo: '100%', descricao: 'satisfação garantida' }
 ];
 
-export default function AboutSection() {
+const AboutSection = () => {
   return (
-    <section id="sobre-nós" style={{
+    <section id={navItems[1].href} style={{
       padding: '120px 24px',
-      background: 'white'
+      background: 'white',
+      overflow: 'hidden'
     }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{
@@ -159,3 +163,5 @@ export default function AboutSection() {
     </section>
   );
 }
+
+export default AboutSection;

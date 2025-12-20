@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 
 // UTILS
 import services from '../../utils/services.js';
+import navItems from '../../utils/navItems.js';
 
-export default function ServicesSection() {
+const ServicesSection = () => {
   return (
-    <section id="serviços" style={{
+    <section id={navItems[2].href} style={{
       padding: '120px 24px',
       background: '#F5F7FA'
     }}>
@@ -166,3 +167,5 @@ export default function ServicesSection() {
     </section >
   );
 }
+
+export default ServicesSection;

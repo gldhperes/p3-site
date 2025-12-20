@@ -4,8 +4,10 @@ import { ArrowRight } from 'lucide-react';
 
 // UTILS
 import contacts from '../../utils/contacts';
+import navItems from '../../utils/navItems';
 
-export default function ContactSection() {
+
+const ContactSection = () => {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -20,9 +22,10 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contato" style={{
+    <section id={navItems[4]?.href} style={{
       padding: '120px 24px',
-      background: '#F5F7FA'
+      background: '#F5F7FA',
+      overflow: 'hidden'
     }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{
@@ -244,3 +247,5 @@ export default function ContactSection() {
     </section>
   );
 }
+
+export default ContactSection;

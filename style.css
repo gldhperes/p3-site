@@ -18,6 +18,7 @@ body {
 a {
     text-decoration: none;
     outline: none;
+    cursor: 'pointer'
 }
 
 ::selection {
@@ -139,7 +140,24 @@ textarea {
     transition: color 0.3s ease;
 }
 
+.return-to-home {
+    display: 'flex';
+    align-items: 'center';
+    gap: '0.5rem';
+    color: 'rgb(147, 197, 253)';
+    margin-bottom: '2rem';
+    transition-property: color;
+    transition-duration: 150ms;
+    text-decoration: none;
+}
 
+.return-to-home:hover {
+    scale: 1.1;
+}
+
+ion-icon {
+    color: white;
+}
 
 @keyframes float {
 

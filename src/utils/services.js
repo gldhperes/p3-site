@@ -1,8 +1,4 @@
-const navItems = ['Início', 'Sobre Nós', 'Serviços', 'Eventos', 'Contato'];
-
 // Images
-// import camera_img from "../../assets/cam.webp";
-
 import cameras_img from "../assets/cam.webp";
 import alarme_img from "../assets/alarms.webp";
 import monitoramento_img from "../assets/monitoring.webp";
