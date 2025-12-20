@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+
+// UTILS
+import contacts from '../../utils/contacts';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -69,15 +72,12 @@ export default function ContactSection() {
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 24 }}>
-              {[
-                { icon: Phone, label: 'Telefone', value: '(11) 99999-9999', href: 'tel:+5511999999999' },
-                { icon: Mail, label: 'E-mail', value: 'contato@securetech.com.br', href: 'mailto:contato@securetech.com.br' },
-                { icon: MapPin, label: 'Endereço', value: 'Av. Paulista, 1000 - São Paulo, SP', href: '#' }
-              ].map((item, index) => (
+              {contacts.map((item, index) => (
                 <a
                   className='contact-cards'
                   key={index}
-                  href={item.href}
+                  href={item?.href}
+                  target='_blank'
                   style={{
                     width: "100%",
                     display: 'flex',
@@ -112,8 +112,8 @@ export default function ContactSection() {
                     <item.icon size={24} color="#0066FF" />
                   </div>
                   <div>
-                    <div style={{ fontSize: 14, color: '#64748B', marginBottom: 4 }}>
-                      {item.label}
+                    <div style={{ fontSize: 18, color: '#64748B', marginBottom: 4 }}>
+                      {item.text}
                     </div>
                     <div style={{ fontSize: 18, fontWeight: 600, color: '#0A2540' }}>
                       {item.value}
@@ -198,7 +198,7 @@ export default function ContactSection() {
                     </label>
                     <input
                       type="tel"
-                      placeholder="(11) 99999-9999"
+                      placeholder="telefone com DDD"
                       value={formData.telefone}
                       onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
                       required

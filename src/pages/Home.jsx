@@ -9,21 +9,17 @@ import WhatsAppButton from '../components/sections/WhatsAppButton.jsx';
 import GlobalStyles from '../components/sections/GlobalStyles.jsx';
 
 export default function Home() {
-  const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
+
 
   return (
-    <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
-      <GlobalStyles />
-      <Header scrollToSection={scrollToSection} />
-      <HeroSection scrollToSection={scrollToSection} />
-      <ServicesSection />
+    <>
+      <Header />
+      <HeroSection />
       <AboutSection />
+      <ServicesSection />
       <TestimonialsSection />
       <ContactSection />
-      <Footer scrollToSection={scrollToSection} />
       <WhatsAppButton />
-    </div>
+    </>
   );
 }

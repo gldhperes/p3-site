@@ -1,6 +1,10 @@
 import { Shield, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { href, Link } from 'react-router-dom';
 
-export default function Footer({ scrollToSection }) {
+import services from "../../utils/services.js";
+import contacts from '../../utils/contacts.js';
+
+const Footer = () => {
   return (
     <footer style={{
       background: '#0A2540',
@@ -39,7 +43,7 @@ export default function Footer({ scrollToSection }) {
               color: 'rgba(255, 255, 255, 0.6)',
               lineHeight: 1.7
             }}>
-              Soluções completas em segurança eletrônica para 
+              Soluções completas em segurança eletrônica para
               residências, empresas e condomínios.
             </p>
             <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
@@ -68,40 +72,8 @@ export default function Footer({ scrollToSection }) {
             </div>
           </div>
 
-          {/* Links Rápidos */}
-          <div>
-            <h4 style={{
-              fontSize: 16,
-              fontWeight: 700,
-              color: 'white',
-              marginBottom: 24
-            }}>
-              Links Rápidos
-            </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              {['Início', 'Serviços', 'Sobre Nós', 'Depoimentos', 'Contato'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'rgba(255, 255, 255, 0.6)',
-                    fontSize: 15,
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                    transition: 'color 0.3s ease',
-                    fontFamily: 'inherit'
-                  }}
-                  onMouseEnter={(e) => e.target.style.color = '#00D4FF'}
-                  onMouseLeave={(e) => e.target.style.color = 'rgba(255, 255, 255, 0.6)'}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-          </div>
+
+
 
           {/* Serviços */}
           <div>
@@ -113,18 +85,34 @@ export default function Footer({ scrollToSection }) {
             }}>
               Nossos Serviços
             </h4>
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-              {['Câmeras IP', 'Alarmes Inteligentes', 'Monitoramento 24h', 'Controle de Acesso', 'Cerca Elétrica'].map((item) => (
-                <span
-                  key={item}
+
+              {services.map((service, index) => (
+                <Link to={`servicos/${service.link}`} preventScrollReset={true} key={index}
                   style={{
+                    background: 'none',
+                    border: 'none',
                     color: 'rgba(255, 255, 255, 0.6)',
-                    fontSize: 15
+                    fontSize: 15,
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    padding: 0,
+                    transition: 'color 0.3s ease',
+                    fontFamily: 'inherit',
+
+
                   }}
+
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#00D4FF'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}
                 >
-                  {item}
-                </span>
+
+                  {service?.title}
+                </Link>
               ))}
+
+
             </div>
           </div>
 
@@ -139,21 +127,23 @@ export default function Footer({ scrollToSection }) {
               Contato
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {[
-                { icon: Phone, text: '(11) 99999-9999' },
-                { icon: Mail, text: 'contato@securetech.com.br' },
-                { icon: MapPin, text: 'Av. Paulista, 1000\nSão Paulo, SP' }
-              ].map((item, index) => (
-                <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+
+              {contacts.map((item, index) => (
+                <a
+                  key={index}
+                  href={item?.href}
+                  target='_blank'
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}
+                >
                   <item.icon size={20} color="#00D4FF" style={{ marginTop: 2, flexShrink: 0 }} />
                   <span style={{
                     color: 'rgba(255, 255, 255, 0.6)',
                     fontSize: 15,
-                    whiteSpace: 'pre-line'
+                    // whiteSpace: 'pre-line'
                   }}>
                     {item.text}
                   </span>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -169,10 +159,17 @@ export default function Footer({ scrollToSection }) {
             color: 'rgba(255, 255, 255, 0.5)',
             fontSize: 14
           }}>
-            © 2024 SecureTech Segurança Eletrônica. Todos os direitos reservados.
+            © 2025 P3 Segurança Eletrônica. Todos os direitos reservados. Feito por &#8201;
+
+            <a href="https://guilhermeperes.com.br" target='_blank' className="credits-link" >
+              Guilherme Peres
+            </a>
+
           </p>
         </div>
-      </div>
-    </footer>
+      </div >
+    </footer >
   );
 }
+
+export default Footer;

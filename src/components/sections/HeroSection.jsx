@@ -2,7 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Camera, ArrowRight } from 'lucide-react';
 
-export default function HeroSection({ scrollToSection }) {
+export default function HeroSection() {
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section id="início" style={{
       minHeight: '100vh',
@@ -21,7 +25,7 @@ export default function HeroSection({ scrollToSection }) {
           radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%)
         `
       }} />
-      
+
       {/* Grid Pattern */}
       <div style={{
         position: 'absolute',
@@ -87,19 +91,19 @@ export default function HeroSection({ scrollToSection }) {
             marginBottom: 40,
             maxWidth: 540
           }}>
-            Proteja o que é mais importante para você com soluções inteligentes 
+            Proteja o que é mais importante para você com soluções inteligentes
             de segurança. Monitoramento, câmeras e alarmes com a mais alta tecnologia.
           </p>
 
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <button 
+            <button
               className="btn-primary"
               onClick={() => scrollToSection('contato')}
             >
               Solicitar Orçamento
               <ArrowRight size={20} />
             </button>
-            <button 
+            <button
               className="btn-secondary"
               onClick={() => scrollToSection('serviços')}
             >
@@ -121,16 +125,16 @@ export default function HeroSection({ scrollToSection }) {
               { value: '24/7', label: 'Monitoramento' }
             ].map((stat, index) => (
               <div key={index}>
-                <div style={{ 
-                  fontSize: 32, 
-                  fontWeight: 800, 
+                <div style={{
+                  fontSize: 32,
+                  fontWeight: 800,
                   color: '#00D4FF',
                   letterSpacing: '-1px'
                 }}>
                   {stat.value}
                 </div>
-                <div style={{ 
-                  fontSize: 14, 
+                <div style={{
+                  fontSize: 14,
                   color: 'rgba(255,255,255,0.6)',
                   marginTop: 4
                 }}>

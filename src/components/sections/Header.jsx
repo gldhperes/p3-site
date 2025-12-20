@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Phone, Menu, X } from 'lucide-react';
 
+// UTILS
+import scrollToSectionFunc from '../../utils/scrollToSection.js';
+
+
+const navItems = ['Início', 'Sobre Nós', 'Serviços', 'Eventos', 'Contato'];
+
 export default function Header({ scrollToSection }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,7 +21,7 @@ export default function Header({ scrollToSection }) {
   }, []);
 
   const handleNavClick = (section) => {
-    scrollToSection(section);
+    scrollToSectionFunc(section);
     setIsMenuOpen(false);
   };
 
@@ -77,7 +83,7 @@ export default function Header({ scrollToSection }) {
           alignItems: 'center',
           gap: 40
         }} className="desktop-nav">
-          {['Início', 'Serviços', 'Sobre Nós', 'Depoimentos', 'Contato'].map((item) => (
+          {navItems.map((item) => (
             <button
               key={item}
               onClick={() => handleNavClick(item.toLowerCase().replace(' ', '-'))}
@@ -154,7 +160,7 @@ export default function Header({ scrollToSection }) {
               gap: 16
             }}
           >
-            {['Início', 'Serviços', 'Sobre Nós', 'Depoimentos', 'Contato'].map((item) => (
+            {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => handleNavClick(item.toLowerCase().replace(' ', '-'))}
