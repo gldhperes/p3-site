@@ -159,6 +159,25 @@ ion-icon {
     color: white;
 }
 
+.insta-button-glow {
+    transition: all 0.3s ease-in-out;
+    animation: insta-pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.insta-button-wrapper:hover .insta-button-glow {
+    opacity: 1;
+    filter: blur(12px);
+    animation: insta-pulse-hover .4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.insta-button-wrapper:hover .insta-button-content {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease;
+}
+
+
+/* KEYFRAMES */
+
 @keyframes float {
 
     0%,
@@ -183,9 +202,37 @@ ion-icon {
     }
 }
 
+@keyframes insta-pulse {
+
+    0%,
+    100% {
+        opacity: 0.75;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes insta-pulse-hover {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
 
 
 
+/* MEDIA */
 
 
 @media (max-width: 1024px) {
@@ -293,5 +340,17 @@ ion-icon {
 @media (min-width: 1280px) {
     .xl-max-w-7xl {
         max-width: 80rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .insta-btn-content {
+        padding: .5rem 1rem !important;
     }
 }

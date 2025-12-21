@@ -1,5 +1,5 @@
-import { Shield, Instagram, Phone, Mail, MapPin } from 'lucide-react';
-import { href, Link } from 'react-router-dom';
+import { Instagram, Shield, } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import services from "../../utils/services.js";
 import contacts from '../../utils/contacts.js';
@@ -47,9 +47,8 @@ const Footer = () => {
               residências, empresas e condomínios.
             </p>
             <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
-              {[Instagram].map((Icon, index) => (
+              
                 <a
-                  key={index}
                   href="https://www.instagram.com/grupoperesce"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -66,9 +65,9 @@ const Footer = () => {
                   onMouseEnter={(e) => e.target.style.background = '#0066FF'}
                   onMouseLeave={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.1)'}
                 >
-                  <Icon size={20} color="white" />
+                  <Instagram size={20} color="white" />
                 </a>
-              ))}
+              
             </div>
           </div>
 
