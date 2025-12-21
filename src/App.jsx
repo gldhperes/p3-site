@@ -5,6 +5,7 @@ import navRoutes from './utils/routes.js';
 import Home from './pages/Home.jsx'
 import Servicos from './pages/Servicos.jsx';
 import Eventos from './pages/Eventos.jsx';
+import LiveEvents from './pages/LiveEvents.jsx';
 
 // COMPONENTS
 import Footer from './components/sections/Footer.jsx';
@@ -25,6 +26,7 @@ function App() {
           <Route path={navRoutes.home} element={<Home />} />
           <Route path={navRoutes.servicos} element={<Servicos />} />
           <Route path={navRoutes.eventos} element={<Eventos />} />
+          <Route path={navRoutes.live} element={<LiveEvents />} />
 
         </Routes>
 

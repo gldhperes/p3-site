@@ -1,18 +1,4 @@
-import { MessageCircle } from 'lucide-react';
-
-const badgeStyle = {
-  position: 'absolute',
-  zIndex: 10,
-  top: 0,
-  right: 0,
-
-  width: 18,
-  height: 18,
-
-  backgroundColor: 'red',
-  borderRadius: '50%',
-  
-};
+import BadgeComponent from "./BadgeComponent";
 
 export default function WhatsAppButton() {
   return (
@@ -41,9 +27,8 @@ export default function WhatsAppButton() {
       onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
       onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
     >
+      <BadgeComponent size={"18px"} top={"0px"} right={"0px"} />
 
-      <div style={badgeStyle}/>
-      {/* <MessageCircle size={32} color="white" fill="white" /> */}
       <ion-icon name="logo-whatsapp" size="large"></ion-icon>
     </a>
   );

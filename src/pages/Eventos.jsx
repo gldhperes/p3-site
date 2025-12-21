@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, px } from 'framer-motion';
 import {
   Camera,
   ArrowRight,
@@ -20,6 +20,7 @@ import {
 
 // COMPONENTS
 import ContactSection from '../components/sections/ContactSection';
+import LiveComponent from '../components/sections/LiveComponent';
 
 const styles = {
   container: {
@@ -70,14 +71,15 @@ const styles = {
     zIndex: 1,
   },
   contentContainer: {
+    width: '100%',
     maxWidth: '1280px',
     margin: '0 auto',
-    padding: '0 1.5rem',
+    padding: '0 1rem',
     position: 'relative',
     zIndex: 10,
-    width: '100%',
     boxSizing: 'border-box',
   },
+
   badge: {
     display: 'inline-flex',
     alignItems: 'center',
@@ -156,6 +158,12 @@ const styles = {
     borderRadius: '1rem',
     overflow: 'hidden',
     transition: 'all 0.3s',
+  },
+
+  liveCard: {
+    position: 'relative',
+    border: '3px solid red',
+    cursor: 'pointer',
   },
   iconWrapper: {
     width: '3.5rem',
@@ -371,6 +379,7 @@ const steps = [
 
 
 const eventTypes = [
+  { title: 'Eventos ao vivo', description: 'Confira alguns eventos com câmeras ao vivo neste exato momento!', image: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=600&h=400&fit=crop' },
   { title: 'Shows e Festivais', description: 'Cobertura completa de grandes eventos com múltiplas câmeras', image: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=600&h=400&fit=crop' },
   { title: 'Eventos Corporativos', description: 'Segurança discreta e eficiente para convenções e conferências', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop' },
   { title: 'Casamentos e Festas', description: 'Monitoramento elegante sem interferir na celebração', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop' },
@@ -408,12 +417,12 @@ export default function Eventos() {
 
         <div style={styles.heroBlob} />
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div style={styles.contentContainer}>
+        <div style={styles.contentContainer}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <div style={{ maxWidth: '800px' }}>
               <Link to={'/'} style={{
                 display: 'flex',
@@ -454,8 +463,8 @@ export default function Eventos() {
                 </button>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
       </section >
 
@@ -481,10 +490,14 @@ export default function Eventos() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                 >
-                  <div key={index} style={styles.card}>
+                  <div key={index} style={{ ...styles.card, ...(index === 0 && { ...styles.liveCard }) }} >
+
+                    {index === 0 && <LiveComponent />}
+
                     <div style={{ height: '200px', overflow: 'hidden' }}>
                       <img src={event.image} alt={event.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
+
                     <div style={{ padding: '1.5rem' }}>
                       <h3 style={{ color: 'white', fontSize: '1.25rem', marginBottom: '0.5rem' }}>{event.title}</h3>
                       <p style={{ color: '#9ca3af' }}>{event.description}</p>

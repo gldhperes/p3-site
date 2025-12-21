@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Phone, Menu, X } from 'lucide-react';
 
+// COMPONENTS
+import BadgeComponent from './BadgeComponent.jsx';
+
 // UTILS
 import scrollToSectionFunc from '../../utils/scrollToSection.js';
 import contacts from '../../utils/contacts.js';
@@ -95,11 +98,21 @@ const Header = () => {
             <a
               key={index}
               onClick={() => handleNavClick(item.href.toLowerCase())}
-              style={{ display: 'flex', alignItems: 'flex-start', gap: 12, color: 'rgba(255,255,255,0.7)', cursor: 'pointer' }}
+              style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: 12,
+                color: 'rgba(255,255,255,0.7)',
+                cursor: 'pointer',
+                position: 'relative',
+
+              }}
               onMouseEnter={(e) => e.target.style.color = 'white'}
               onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.7)'}
             >
               {item.text}
+
+              {item?.badge === true && <BadgeComponent size={12} top={"-5px"} right={"-12px"} />}
             </a>
           ))}
         </nav>
@@ -164,10 +177,11 @@ const Header = () => {
               <a
                 key={index}
                 onClick={() => handleNavClick(item.href.toLowerCase())}
-                style={{ display: 'flex', alignItems: 'flex-start', gap: 12, color: 'rgba(255,255,255,0.7)', cursor: 'pointer' }}
+                style={{ display: 'flex', alignItems: 'flex-start', gap: 12, color: 'rgba(255,255,255,0.7)', cursor: 'pointer', position: 'relative' }}
                 onMouseEnter={(e) => e.target.style.color = 'white'}
                 onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.7)'}
               >
+                {item?.badge === true && <BadgeComponent size={12} top={"-5px"} left={"60px"} />}
                 {item.text}
               </a>
             ))}
