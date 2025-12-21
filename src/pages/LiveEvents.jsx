@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 import navRoutes from '../utils/routes';
 import { ArrowLeft } from 'lucide-react';
+import LiveBadge from '../components/LiveBadge';
 
 const eventos = [
     {
@@ -11,7 +12,6 @@ const eventos = [
         nome: 'Festival de Verão 2024',
         local: 'Parque Ibirapuera - São Paulo',
         status: 'ao_vivo',
-        visualizacoes: 1247,
         videoUrl: '', // URL do stream será adicionada aqui
         thumbnail: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&h=600&fit=crop'
     },
@@ -20,7 +20,6 @@ const eventos = [
         nome: 'Conferência Tech Summit',
         local: 'Centro de Convenções - Rio de Janeiro',
         status: 'ao_vivo',
-        visualizacoes: 856,
         videoUrl: '',
         thumbnail: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop'
     },
@@ -29,7 +28,6 @@ const eventos = [
         nome: 'Show Sertanejo',
         local: 'Arena José Miguel - Fortaleza',
         status: 'ao_vivo',
-        visualizacoes: 2134,
         videoUrl: '',
         thumbnail: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&h=600&fit=crop'
     },
@@ -38,7 +36,6 @@ const eventos = [
         nome: 'Casamento Marina & João',
         local: 'Hotel Fasano - São Paulo',
         status: 'offline',
-        visualizacoes: 0,
         videoUrl: '',
         thumbnail: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop'
     }
@@ -154,6 +151,7 @@ const styles = {
     },
     eventCard: {
         background: '#162a46',
+        position: 'relative',
         borderRadius: '16px',
         overflow: 'hidden',
         border: '1px solid #1e3a5a',
@@ -203,20 +201,6 @@ const styles = {
         color: '#fff',
         textTransform: 'uppercase',
         letterSpacing: '0.5px'
-    },
-    viewersIndicator: {
-        position: 'absolute',
-        top: '16px',
-        right: '16px',
-        background: 'rgba(0, 0, 0, 0.7)',
-        padding: '6px 12px',
-        borderRadius: '6px',
-        fontSize: '12px',
-        fontWeight: '600',
-        color: '#fff',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '6px'
     },
     eventInfo: {
         padding: '20px'
@@ -360,6 +344,8 @@ const LiveEvents = () => {
                     <h2 style={styles.sectionSubtitle}>Transmissões Ativas</h2>
                 </div>
 
+
+
                 <div style={styles.grid}>
                     {eventos.map((evento, index) => (
                         <motion.div
@@ -378,6 +364,9 @@ const LiveEvents = () => {
                             }}
                             onClick={() => setSelectedEvent(evento)}
                         >
+
+
+
                             {/* Video/Thumbnail Container */}
                             <div style={styles.videoContainer}>
                                 {evento.videoUrl ? (
@@ -401,19 +390,7 @@ const LiveEvents = () => {
                                 )}
 
                                 {evento.status === 'ao_vivo' ? (
-                                    <>
-                                        <div style={styles.liveIndicator}>
-                                            <div style={styles.liveDot} />
-                                            AO VIVO
-                                        </div>
-                                        <div style={styles.viewersIndicator}>
-                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
-                                            {evento.visualizacoes}
-                                        </div>
-                                    </>
+                                    <LiveBadge />
                                 ) : (
                                     <div style={styles.offlineBadge}>OFFLINE</div>
                                 )}
@@ -421,6 +398,7 @@ const LiveEvents = () => {
 
                             {/* Event Info */}
                             <div style={styles.eventInfo}>
+
                                 <h3 style={styles.eventName}>{evento.nome}</h3>
                                 <p style={styles.eventLocation}>
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -1,5 +1,6 @@
 import BadgeComponent from "./BadgeComponent";
 
+
 export default function WhatsAppButton() {
   return (
     <a

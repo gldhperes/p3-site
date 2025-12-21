@@ -20,7 +20,7 @@ import {
 
 // COMPONENTS
 import ContactSection from '../components/sections/ContactSection';
-import LiveComponent from '../components/sections/LiveComponent';
+import LiveComponent from '../components/LiveComponent';
 
 const styles = {
   container: {

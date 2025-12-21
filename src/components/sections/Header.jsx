@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Phone, Menu, X } from 'lucide-react';
 
 // COMPONENTS
-import BadgeComponent from './BadgeComponent.jsx';
+import BadgeComponent from '../BadgeComponent.jsx';
 
 // UTILS
 import scrollToSectionFunc from '../../utils/scrollToSection.js';

@@ -9,7 +9,7 @@ import LiveEvents from './pages/LiveEvents.jsx';
 
 // COMPONENTS
 import Footer from './components/sections/Footer.jsx';
-import WhatsAppButton from './components/sections/WhatsAppButton.jsx';
+import WhatsAppButton from './components/WhatsAppButton.jsx';
 
 
 function App() {
