@@ -24,8 +24,6 @@ const Header = () => {
   }, []);
 
   const handleNavClick = (section) => {
-    console.log(section);
-
     if (section === navRoutes.eventos) {
       window.location.href = navRoutes.eventos.toLowerCase();
     }
