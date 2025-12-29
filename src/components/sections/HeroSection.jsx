@@ -54,7 +54,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div style={{
+          {/* <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: 8,
@@ -73,7 +73,7 @@ const HeroSection = () => {
             <span style={{ color: '#00D4FF', fontSize: 14, fontWeight: 500 }}>
               Proteção 24 horas por dia
             </span>
-          </div>
+          </div> */}
 
           <h1 style={{
             fontSize: 'clamp(40px, 5vw, 64px)',
@@ -81,11 +81,12 @@ const HeroSection = () => {
             color: 'white',
             lineHeight: 1.1,
             marginBottom: 24,
-            letterSpacing: '-2px'
+            letterSpacing: '-2px',
+            fontStyle: 'uppercase'
           }}>
-            Tecnologia e{' '}
-            <span className="gradient-text">Confiança</span>
-            {' '}em Segurança Eletrônica
+            Protegendo{' '}
+            <span className="gradient-text">seu patrimônio</span>
+            {' '}24h por dia
           </h1>
 
           <p style={{
@@ -109,7 +110,7 @@ const HeroSection = () => {
             </button>
             <button
               className="btn-secondary"
-              onClick={() => scrollToSection('serviços')}
+              onClick={() => scrollToSection('servicos')}
             >
               Conheça os Serviços
             </button>

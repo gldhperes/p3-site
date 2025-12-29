@@ -19,8 +19,9 @@ import {
 } from 'lucide-react';
 
 // COMPONENTS
-import ContactSection from '../components/sections/ContactSection';
+import BackToHomeComponent from '../components/BackToHomeComponent';
 import LiveComponent from '../components/LiveComponent';
+import Header from '../components/sections/Header';
 
 const styles = {
   container: {
@@ -320,7 +321,7 @@ const styles = {
     gap: '1rem',
     zIndex: 1,
 
-    "@media(min-width: 480px)": {
+    "@media(minWidth: 480px)": {
       padding: '0',
     },
   },
@@ -404,6 +405,9 @@ const instaStats = [
 export default function Eventos() {
   return (
     <div style={styles.container}>
+
+      <Header />
+
       {/* Hero Section */}
       <section style={styles.heroSection}>
         <div style={styles.heroBg}>
@@ -424,19 +428,7 @@ export default function Eventos() {
             transition={{ duration: 0.8 }}
           >
             <div style={{ maxWidth: '800px' }}>
-              <Link to={'/'} style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                color: 'rgb(147, 197, 253)',
-                marginBottom: '2rem',
-                textDecoration: 'none',
-                fontSize: '1rem'
-              }}>
-                <ArrowLeft size={16} />
-                Voltar para Home
-              </Link>
-
+              <BackToHomeComponent />
 
               <div style={styles.badge}>
                 <Camera size={16} color="#60a5fa" />
@@ -742,7 +734,6 @@ export default function Eventos() {
         </motion.div>
       </section >
 
-      <ContactSection />
     </div >
   );
 }

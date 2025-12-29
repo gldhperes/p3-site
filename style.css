@@ -26,6 +26,11 @@ a {
     color: white;
 }
 
+#saiba-mais-btn:hover {
+    scale: 1.05;
+    /* right: 30px !important; */
+}
+
 .gradient-text {
     background: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
     -webkit-background-clip: text;
@@ -171,9 +176,33 @@ ion-icon {
 }
 
 .insta-button-wrapper:hover .insta-button-content {
-  transform: translateY(-2px);
-  transition: transform 0.3s ease;
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
 }
+
+
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.footer-link {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #d1d5db;
+}
+
+
+
+
+
+
 
 
 /* KEYFRAMES */
@@ -271,8 +300,16 @@ ion-icon {
 
 
 @media (max-width: 600px) {
-    #experience-badge {
-        right: 30px !important;
+
+    #diferenciais2 {
+        gap: 24px !important;
+        margin-top: 24px !important;
+        justify-content: flex-start !important;
+    }
+
+    #saiba-mais-btn {
+        bottom: 10px !important;
+        right: 10px !important;
     }
 
     .contact-cards {
@@ -293,6 +330,9 @@ ion-icon {
 }
 
 @media (min-width: 768px) {
+
+
+
     .md-px-6 {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
@@ -316,6 +356,11 @@ ion-icon {
     .md-grid-cols-2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+
+    /* #footer-bottom { */
+        /* justify-content: center !important; */
+    /* } */
 }
 
 @media (min-width: 1024px) {

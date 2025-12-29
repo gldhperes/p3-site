@@ -1,10 +1,21 @@
 import { Instagram, Shield, } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import navRoutes from '../../utils/routes.js';
+
+// IMAGES
+import p3logo from '../../assets/P3-logo1.png';
+
+// UTILS
 import services from "../../utils/services.js";
 import contacts from '../../utils/contacts.js';
 
+
+
+
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <footer style={{
       background: '#0A2540',
@@ -20,24 +31,23 @@ const Footer = () => {
           {/* Logo e Descrição */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
-              <div style={{
-                width: 48,
-                height: 48,
-                background: 'linear-gradient(135deg, #0066FF 0%, #00D4FF 100%)',
-                borderRadius: 12,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <Shield size={28} color="white" />
-              </div>
-              <div>
-                <div style={{ fontSize: 22, fontWeight: 800, color: 'white' }}>SecureTech</div>
-                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', letterSpacing: '2px', textTransform: 'uppercase' }}>
-                  Segurança Eletrônica
-                </div>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12
+                }}>
+                <a href={navRoutes.home}>
+                  <img src={p3logo} alt="Logo"
+                    style={{
+                      width: "180px",
+                      height: "70px",
+                      objectFit: "contain"
+                    }} />
+                </a>
               </div>
             </div>
+
             <p style={{
               fontSize: 15,
               color: 'rgba(255, 255, 255, 0.6)',
@@ -47,27 +57,27 @@ const Footer = () => {
               residências, empresas e condomínios.
             </p>
             <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
-              
-                <a
-                  href="https://www.instagram.com/grupoperesce"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: 12,
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onMouseEnter={(e) => e.target.style.background = '#0066FF'}
-                  onMouseLeave={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.1)'}
-                >
-                  <Instagram size={20} color="white" />
-                </a>
-              
+
+              <a
+                href="https://www.instagram.com/grupoperesce"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: 12,
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.background = '#0066FF'}
+                onMouseLeave={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.1)'}
+              >
+                <Instagram size={20} color="white" />
+              </a>
+
             </div>
           </div>
 
@@ -149,24 +159,44 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div style={{
-          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-          paddingTop: 32,
-          textAlign: 'center'
-        }}>
-          <p style={{
-            color: 'rgba(255, 255, 255, 0.5)',
-            fontSize: 14
+        <div
+          id="footer-bottom"
+          style={{
+            width: '100%',
+            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+            paddingTop: 32,
+            display: 'flex',
+            flexFlow: 'row wrap',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 40,
+
           }}>
-            © 2025 P3 Segurança Eletrônica. Todos os direitos reservados. Feito por &#8201;
+          <div>
+            <p style={{
+              color: 'rgba(255, 255, 255, 0.5)',
+              fontSize: 14
+            }}>
+              © {year} P3 Segurança Eletrônica. Todos os direitos reservados. Feito por &#8201;
 
-            <a href="https://guilhermeperes.com.br" target='_blank' className="credits-link" >
-              Guilherme Peres
-            </a>
+              <a href="https://guilhermeperes.com.br" target='_blank' className="credits-link" >
+                Guilherme Peres
+              </a>
 
-          </p>
+            </p>
+          </div>
+
+
+
+          <div className="footer-links">
+            <a href={navRoutes.termosdeuso} className="footer-link">Termos de Uso</a>
+            <a href={navRoutes.privacidade} className="footer-link">Política de Privacidade</a>
+          </div>
         </div>
+
+
       </div >
+
     </footer >
   );
 }

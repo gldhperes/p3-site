@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { CheckCircle, ArrowLeft, ArrowRight, Phone } from 'lucide-react';
+import { CheckCircle, ArrowLeft, ArrowRight, Phone, Contact } from 'lucide-react';
 
-
+// COMPONENTS
+import BackToHomeComponent from '../components/BackToHomeComponent';
 
 // UTILS
 import scrollToSectionFunc from '../utils/scrollToSection';
 import services from '../utils/services';
 import contacts from '../utils/contacts';
+import Header from '../components/sections/Header';
 
 // Definição dos estilos CSS puros
 const styles = {
@@ -18,7 +20,7 @@ const styles = {
 
   sectionHero: {
     position: 'relative',
-    paddingTop: '8rem', // pt-32
+    paddingTop: '16rem', // pt-32
     paddingBottom: '5rem', // pb-20
     overflow: 'hidden',
   },
@@ -416,6 +418,8 @@ const Servico = () => {
   return (
     <div id={serviceId} style={styles.container}>
 
+      <Header />
+
       {/* Hero Section */}
       <section style={styles.sectionHero}>
 
@@ -434,10 +438,7 @@ const Servico = () => {
           <div>
             <div style={styles.heroGrid}>
               <div>
-                <Link to={'/'} style={{ ...styles.linkBack, ...styles.linkBackHover }}>
-                  <ArrowLeft style={{ width: '1rem', height: '1rem' }} />
-                  Voltar para Home
-                </Link>
+                <BackToHomeComponent />
 
                 <h1 style={styles.title}>
                   {service.title}
@@ -553,33 +554,6 @@ const Servico = () => {
           </div>
         </div>
 
-      </section>
-
-      {/* CTA Section */}
-      <section style={styles.sectionCta}>
-        <div style={{ ...styles.contentContainer, textAlign: 'center' }}>
-          <div>
-            <h2 style={styles.ctaTitle}>
-              Pronto Para Proteger o Que É Seu?
-            </h2>
-            <p style={styles.ctaDescription}>
-              Entre em contato agora mesmo e receba um orçamento personalizado para sua necessidade.
-            </p>
-            <div style={styles.ctaButtonGroup}>
-              <button
-                style={{ ...styles.ctaButtonPrimary, ...styles.ctaButtonPrimaryHover }} // Simulação de hover
-              >
-                Solicitar Orçamento Grátis
-              </button>
-              <button
-                style={{ ...styles.ctaButtonOutline, ...styles.ctaButtonOutlineHover }} // Simulação de hover
-              >
-                <Phone style={{ marginRight: '0.5rem', width: '1.25rem', height: '1.25rem' }} />
-                Ligar Agora
-              </button>
-            </div>
-          </div>
-        </div>
       </section>
 
     </div>

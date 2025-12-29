@@ -1,15 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import navRoutes from './utils/routes.js';
+import { BrowserRouter } from 'react-router-dom';
 
-// PAGES
-import Home from './pages/Home.jsx'
-import Servicos from './pages/Servicos.jsx';
-import Eventos from './pages/Eventos.jsx';
-import LiveEvents from './pages/LiveEvents.jsx';
-
-// COMPONENTS
-import Footer from './components/sections/Footer.jsx';
-import WhatsAppButton from './components/WhatsAppButton.jsx';
+import Layout from './Layout.jsx';
 
 
 function App() {
@@ -18,20 +9,8 @@ function App() {
   return (
     <div style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}>
 
-
-      {/* <GlobalStyles /> */}
-
       <BrowserRouter>
-        <Routes>
-          <Route path={navRoutes.home} element={<Home />} />
-          <Route path={navRoutes.servicos} element={<Servicos />} />
-          <Route path={navRoutes.eventos} element={<Eventos />} />
-          <Route path={navRoutes.live} element={<LiveEvents />} />
-
-        </Routes>
-
-        <WhatsAppButton />
-        <Footer />
+        <Layout />
       </BrowserRouter>
 
     </div>

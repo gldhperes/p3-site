@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Phone, Menu, X } from 'lucide-react';
 
+// IMAGES
+import p3logo from '../../assets/P3-logo1.png';
+// 
 // COMPONENTS
 import BadgeComponent from '../BadgeComponent.jsx';
 
@@ -14,8 +18,21 @@ import navRoutes from '../../utils/routes.js';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [_navItems, setNavItems] = useState(navItems);
+
+  const location = useLocation();
+  console.log(location.pathname);
+
+
+
 
   useEffect(() => {
+
+    if (location.pathname !== '/') {
+      setNavItems([]);
+      scrollToSectionFunc('top');
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -24,6 +41,8 @@ const Header = () => {
   }, []);
 
   const handleNavClick = (section) => {
+
+    
     if (section === navRoutes.eventos) {
       window.location.href = navRoutes.eventos.toLowerCase();
     }
@@ -59,31 +78,20 @@ const Header = () => {
         justifyContent: 'space-between'
       }}>
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{
-            width: 48,
-            height: 48,
-            background: 'linear-gradient(135deg, #0066FF 0%, #00D4FF 100%)',
-            borderRadius: 12,
+        <div
+          style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            gap: 12
           }}>
-            <Shield size={28} color="white" />
-          </div>
-          <div>
-            <div style={{
-              fontSize: 22,
-              fontWeight: 800,
-              color: 'white',
-              letterSpacing: '-0.5px'
-            }}>
-              SecureTech
-            </div>
-            <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', letterSpacing: '2px', textTransform: 'uppercase' }}>
-              Segurança Eletrônica
-            </div>
-          </div>
+          <a href={navRoutes.home}>
+            <img src={p3logo} alt="Logo"
+              style={{
+                width: "240px",
+                height: "80px",
+                objectFit: "contain"
+              }} />
+          </a>
         </div>
 
         {/* Desktop Navigation */}
@@ -92,7 +100,7 @@ const Header = () => {
           alignItems: 'center',
           gap: 40
         }} className="desktop-nav">
-          {navItems.map((item, index) => (
+          {_navItems.map((item, index) => (
             <a
               key={index}
               onClick={() => handleNavClick(item.href.toLowerCase())}
