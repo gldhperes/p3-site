@@ -61,7 +61,7 @@ const AboutSection = () => {
                 }}
               />
             </div>
-            <div
+            {/* <div
               id='saiba-mais-btn'
               style={{
                 position: 'absolute',
@@ -85,7 +85,7 @@ const AboutSection = () => {
                 <p style={{ fontSize: 32, fontWeight: 800 }}>Saiba mais</p>
                 <ArrowRight size={32} />
               </a>
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div
@@ -129,53 +129,36 @@ const AboutSection = () => {
               negócios com tecnologia, inteligência e compromisso.
             </p>
 
-            <div style={{
-              display: 'flex ',
-              flexFlow: 'row wrap',
-              gap: 24
-            }}>
-              {diferenciais.map((item, index) => (
-                <div
-                  key={index}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 16,
-                    padding: 20,
-                    background: item.main ? 'linear-gradient(135deg, rgba(0, 102, 255, 1) 0%, rgba(0, 212, 255, 1) 100%)' : '#F5F7FA',
-                    borderRadius: 16
-                  }}
-                >
-                  <div style={{
-                    width: 52,
-                    height: 52,
-                    background: item.main ? '#fbff0255' : 'linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%)',
-                    borderRadius: 12,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}>
-                    <item.icon size={24} color={item.main ? "#fbff02ff" : "#0066FF"} />
-                  </div>
-                  <div>
-                    <div style={{
-                      fontSize: 24,
-                      fontWeight: 800,
-                      color: item.main ? '#FFFFFF' : '#0A2540'
-                    }}>
-                      {item.titulo}
-                    </div>
-                    <div style={{
-                      fontSize: 14,
-                      color: item.main ? '#FFFFFF' : '#64748B'
-                    }}>
-                      {item.descricao}
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div
+              id='saiba-mais-btn'
+              style={{
+                // position: 'absolute',
+                // bottom: -20,
+                // right: -20,
+                // maxWidth: "400px",
+                background: 'linear-gradient(135deg, #0066FF 0%, #00D4FF 100%)',
+                borderRadius: 20,
+                padding: 25,
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                boxShadow: '4px 4px 15px rgba(2, 121, 145, 1)'
+
+              }}>
+              <a href={navItems[1].href}
+                style={{
+                  display: 'flex',
+                  color: 'white',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: 8,
+                  transition: 'all 0.3s ease',
+                }}>
+                <p style={{ fontSize: 32, fontWeight: 800 }}>Saiba mais</p>
+                <ArrowRight size={32} />
+              </a>
             </div>
+
+
           </motion.div>
         </div>
 
@@ -190,13 +173,57 @@ const AboutSection = () => {
             display: 'flex',
             flexFlow: 'row wrap',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             gap: 40,
           }}
         >
+          {diferenciais.map((item, index) => (
+            <div
+              className="diferencial-item"
+              key={index}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                gap: 16,
+                padding: 20,
+                background: item.main ? 'linear-gradient(135deg, rgba(0, 102, 255, 1) 0%, rgba(0, 212, 255, 1) 100%)' : '#F5F7FA',
+                borderRadius: 16
+              }}
+            >
+              <div style={{
+                width: 52,
+                height: 52,
+                background: item.main ? '#fbff0255' : 'linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%)',
+                borderRadius: 12,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                <item.icon size={24} color={item.main ? "#fbff02ff" : "#0066FF"} />
+              </div>
+              <div>
+                <div style={{
+                  fontSize: 24,
+                  fontWeight: 800,
+                  color: item.main ? '#FFFFFF' : '#0A2540'
+                }}>
+                  {item.titulo}
+                </div>
+                <div style={{
+                  fontSize: 14,
+                  color: item.main ? '#FFFFFF' : '#64748B'
+                }}>
+                  {item.descricao}
+                </div>
+              </div>
+            </div>
+          ))}
 
           {diferenciais2.map((item, index) => (
             <div
+              className="diferencial-item"
               key={index}
               style={{
                 display: 'flex',
@@ -232,7 +259,7 @@ const AboutSection = () => {
           ))}
 
         </motion.div>
-      </div>
+      </div >
 
 
     </section >

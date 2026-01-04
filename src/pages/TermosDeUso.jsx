@@ -42,7 +42,8 @@ const styles = {
     fontWeight: '700',
     color: '#ffffff',
     marginBottom: '16px',
-    lineHeight: '1.2'
+    lineHeight: '1.2',
+    textTransform: 'uppercase'
   },
   updateDate: {
     fontSize: '14px',
@@ -74,7 +75,8 @@ const styles = {
     marginBottom: '16px',
     display: 'flex',
     alignItems: 'center',
-    gap: '12px'
+    gap: '12px',
+    textTransform: 'uppercase'
   },
   sectionNumber: {
     width: '32px',

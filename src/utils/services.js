@@ -4,6 +4,9 @@ import alarme_img from "../assets/alarms.webp";
 import monitoramento_img from "../assets/monitoring.webp";
 import acesso_img from "../assets/turnstile.webp";
 import cerca_img from "../assets/cerca.png";
+import event_cameras from "../assets/event-cameras.png";
+import interfone from "../assets/interfony.jpg";
+import portao_automatico from "../assets/automatic-motor.jpg";
 
 
 
@@ -25,14 +28,15 @@ import {
     Eye,
     Users,
     Building,
-    Home
+    Home,
+    MonitorPlay
 } from 'lucide-react';
 
 
 const services = [
     {
-        title: 'Câmeras IP',
-        link: 'cameras-ip',
+        title: 'cftv',
+        link: 'cftv',
         icon: Camera,
         subtitle: 'Monitoramento Inteligente em Alta Definição',
         subDescription: 'Monitoramento em alta definição com acesso remoto via smartphone e gravação em nuvem.',
@@ -63,8 +67,8 @@ const services = [
 
 
     {
-        title: 'Alarmes Inteligentes',
-        link: 'alarmes-inteligentes',
+        title: 'alarmes residenciais e empresariais',
+        link: 'alarmes',
         icon: Bell,
         subtitle: 'Proteção Proativa com Tecnologia de Ponta',
         subDescription: 'Sistemas de alarme com sensores de última geração e notificações instantâneas.',
@@ -95,8 +99,8 @@ const services = [
 
 
     {
-        title: 'Monitoramento 24h',
-        link: 'monitoramento-24h',
+        title: 'Monitoramento Eletrônico 24h',
+        link: 'monitoramento',
         icon: Clock,
         subtitle: 'Central de Vigilância Sempre Ativa',
         subDescription: 'Central de monitoramento ativa 24 horas, 7 dias por semana, com resposta imediata.',
@@ -159,8 +163,8 @@ const services = [
 
 
     {
-        title: 'Cerca Elétrica',
-        link: 'cerca-eletrica',
+        title: 'Cercas Elétricas',
+        link: 'cercas-eletricas',
         icon: Zap,
         subtitle: 'Barreira Perimetral de Alta Segurança',
         subDescription: 'Proteção perimetral com cercas elétricas de alta voltagem e alarme integrado.',
@@ -191,35 +195,100 @@ const services = [
 
 
     {
-        title: 'Projetos Customizados',
-        link: 'projetos-customizados',
+        title: 'portões automáticos',
+        link: 'portoes-automaticos',
+        image: portao_automatico,
         icon: Shield,
-        subtitle: 'Soluções Sob Medida Para Sua Necessidade',
-        subDescription: 'Soluções personalizadas para residências, empresas e condomínios.',
-        description: 'Desenvolvemos projetos personalizados que integram câmeras, alarmes, controle de acesso e monitoramento em uma solução única e completa, adaptada às suas necessidades específicas.',
-        // image: projetos_img,
+        subtitle: 'Automação, Conforto e Segurança no Seu Dia a Dia',
+        subDescription: 'Automação de portões com tecnologia confiável, garantindo praticidade, segurança e durabilidade.',
+        description: 'Oferecemos soluções completas em automação de portões para residências, empresas e condomínios. Trabalhamos com equipamentos robustos e de alta performance, proporcionando mais conforto no acesso, segurança reforçada e operação silenciosa, com instalação e manutenção especializada.',
         features: [
-            { icon: Settings, title: 'Projeto Exclusivo', description: 'Desenvolvido para sua necessidade' },
-            { icon: Users, title: 'Consultoria Técnica', description: 'Análise completa do local' },
-            { icon: Shield, title: 'Integração Total', description: 'Todos os sistemas conectados' },
-            { icon: Cloud, title: 'Automação', description: 'Cenários automatizados' },
-            { icon: Smartphone, title: 'App Centralizado', description: 'Controle tudo em um lugar' },
-            { icon: Eye, title: 'Monitoramento Unificado', description: 'Visão completa da segurança' }
+            { icon: Shield, title: 'Segurança Reforçada', description: 'Sistemas que evitam acessos não autorizados' },
+            { icon: Settings, title: 'Automação Inteligente', description: 'Abertura e fechamento práticos e rápidos' },
+            { icon: Smartphone, title: 'Controle Remoto', description: 'Acesso facilitado por controles e dispositivos' },
+            { icon: Lock, title: 'Travas de Segurança', description: 'Mais proteção contra invasões' },
+            { icon: Clock, title: 'Funcionamento Confiável', description: 'Equipamentos duráveis para uso contínuo' },
+            { icon: Users, title: 'Uso Residencial e Comercial', description: 'Soluções adaptadas para cada necessidade' }
         ],
         benefits: [
-            'Análise de vulnerabilidades no local',
-            'Projeto técnico detalhado',
-            'Equipamentos de primeira linha',
-            'Instalação profissional',
-            'Treinamento completo de uso',
-            'Suporte técnico dedicado'
+            'Mais conforto e praticidade no acesso',
+            'Aumento significativo da segurança',
+            'Equipamentos de alta durabilidade',
+            'Redução de riscos de invasão',
+            'Manutenção especializada',
+            'Soluções sob medida para cada projeto'
         ],
         applications: [
-            { icon: Building, title: 'Grandes Empresas', description: 'Soluções corporativas completas' },
-            { icon: Users, title: 'Condomínios', description: 'Segurança integrada' },
-            { icon: Home, title: 'Residências de Alto Padrão', description: 'Automação e segurança premium' }
+            { icon: Home, title: 'Residências', description: 'Conforto e segurança para o dia a dia' },
+            { icon: Building, title: 'Empresas', description: 'Controle eficiente de acesso veicular' },
+            { icon: Users, title: 'Condomínios', description: 'Mais organização e segurança coletiva' }
         ]
-    }
+    },
+
+    {
+        title: "interfonia",
+        link: 'interfonia',
+        image: interfone,
+        icon: Phone,
+        subtitle: 'Comunicação Clara com Mais Controle e Segurança',
+        subDescription: 'Soluções em interfonia para controle de acesso eficiente e comunicação segura.',
+        description: 'Nossos sistemas de interfonia oferecem comunicação rápida e segura entre ambientes, permitindo o controle de entrada de visitantes com muito mais praticidade. Ideal para residências, empresas e condomínios que buscam organização, comodidade e segurança no dia a dia.',
+        features: [
+            { icon: Phone, title: 'Comunicação Instantânea', description: 'Contato rápido entre ambientes internos e externos' },
+            { icon: Lock, title: 'Controle de Acesso', description: 'Liberação segura de visitantes' },
+            { icon: Building, title: 'Uso Versátil', description: 'Ideal para casas, empresas e condomínios' },
+            { icon: Shield, title: 'Mais Segurança', description: 'Redução de acessos indevidos' },
+            { icon: Users, title: 'Integração com Portões', description: 'Funciona em conjunto com automação' },
+            { icon: Settings, title: 'Instalação Profissional', description: 'Sistema configurado para sua necessidade' }
+        ],
+        benefits: [
+            'Comunicação rápida e eficiente',
+            'Mais segurança no controle de visitantes',
+            'Integração com portões e fechaduras',
+            'Organização no fluxo de entrada',
+            'Maior comodidade no dia a dia',
+            'Solução ideal para diversos ambientes'
+        ],
+        applications: [
+            { icon: Home, title: 'Residências', description: 'Controle seguro de visitantes' },
+            { icon: Building, title: 'Empresas', description: 'Organização e segurança no acesso' },
+            { icon: Users, title: 'Condomínios', description: 'Comunicação prática entre moradores e portaria' }
+        ]
+    },
+
+    {
+        title: "monitoramento de eventos",
+        link: 'monitoramento-de-eventos',
+        image: event_cameras,
+        icon: MonitorPlay,
+        subtitle: 'Acompanhamento em Tempo Real para Ação Imediata',
+        subDescription: 'Monitoramento contínuo de eventos e ocorrências com resposta rápida e eficaz.',
+        description: 'O monitoramento de eventos permite o acompanhamento em tempo real de ocorrências detectadas pelos sistemas de segurança, possibilitando ações imediatas conforme protocolos definidos. Essa solução garante maior controle, redução de riscos e mais tranquilidade em situações críticas.',
+        features: [
+            { icon: Eye, title: 'Monitoramento Contínuo', description: 'Acompanhamento em tempo real das ocorrências' },
+            { icon: Bell, title: 'Identificação de Eventos', description: 'Detecção rápida de situações anormais' },
+            { icon: Shield, title: 'Ação Conforme Protocolo', description: 'Resposta imediata e organizada' },
+            { icon: Users, title: 'Equipe Especializada', description: 'Atendimento profissional e confiável' },
+            { icon: Cloud, title: 'Registro de Ocorrências', description: 'Histórico detalhado de eventos' },
+            { icon: Clock, title: 'Atuação 24h', description: 'Monitoramento constante e ininterrupto' }
+        ],
+        benefits: [
+            'Identificação rápida de eventos suspeitos',
+            'Ação imediata diante de ocorrências',
+            'Redução de riscos e perdas',
+            'Monitoramento contínuo e confiável',
+            'Mais segurança e tranquilidade',
+            'Integração com sistemas de alarme e CFTV'
+        ],
+        applications: [
+            { icon: Building, title: 'Empresas', description: 'Gestão eficiente de ocorrências' },
+            { icon: Users, title: 'Eventos', description: 'Segurança reforçada em tempo real' },
+            { icon: Home, title: 'Residências', description: 'Mais tranquilidade para a família' }
+        ]
+
+    },
+
+
 ]
 
 export default services;

@@ -74,8 +74,7 @@ const ServicesSection = () => {
                   cursor: 'pointer',
                   border: '1px solid rgba(0, 102, 255, 0.08)',
                   backgroundColor: 'white',
-                  overflow: 'hidden'
-
+                  overflow: 'hidden',
                 }}
               >
 
@@ -122,10 +121,11 @@ const ServicesSection = () => {
                   </div>
 
                   <h3 style={{
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: 700,
                     color: '#0A2540',
-                    marginBottom: 12
+                    marginBottom: 12,
+                    textTransform: 'uppercase'
                   }}>
                     {service.title}
                   </h3>

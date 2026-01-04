@@ -131,6 +131,7 @@ const styles = {
     fontWeight: '700', // font-bold
     color: 'white', // text-white
     marginBottom: '1rem', // mb-4
+    textTransform: 'uppercase',
   },
 
   subtitle: {

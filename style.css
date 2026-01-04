@@ -28,6 +28,7 @@ a {
 
 #saiba-mais-btn:hover {
     scale: 1.05;
+    background: linear-gradient(135deg, #0058dd 0%, #00c4eb 100%) !important;
     /* right: 30px !important; */
 }
 
@@ -303,25 +304,20 @@ ion-icon {
 
     #diferenciais2 {
         gap: 24px !important;
-        margin-top: 24px !important;
-        justify-content: flex-start !important;
     }
 
-    #saiba-mais-btn {
-        bottom: 10px !important;
-        right: 10px !important;
+    .diferencial-item {
+        width: 100% !important;
     }
 
     .contact-cards {
         padding: 10px !important;
-
     }
 }
 
 @media (max-width: 450px) {
     #tech-img-container {
         width: 330px !important;
-
     }
 
     .contact-form {
@@ -330,8 +326,6 @@ ion-icon {
 }
 
 @media (min-width: 768px) {
-
-
 
     .md-px-6 {
         padding-left: 1.5rem;
@@ -357,10 +351,6 @@ ion-icon {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-
-    /* #footer-bottom { */
-        /* justify-content: center !important; */
-    /* } */
 }
 
 @media (min-width: 1024px) {

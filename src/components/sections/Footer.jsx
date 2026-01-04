@@ -1,4 +1,4 @@
-import { Instagram, Shield, } from 'lucide-react';
+import { Instagram, Shield, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import navRoutes from '../../utils/routes.js';
@@ -11,7 +11,13 @@ import services from "../../utils/services.js";
 import contacts from '../../utils/contacts.js';
 
 
-
+const style = {
+  contacLink: {
+    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: 15,
+    "&:hover": { color: '#00D4FF' },
+  },
+};
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -48,18 +54,30 @@ const Footer = () => {
               </div>
             </div>
 
-            <p style={{
+            <div style={{
+              display: 'flex',
+              flexFlow: 'column',
+              gap: 12,
               fontSize: 15,
               color: 'rgba(255, 255, 255, 0.6)',
               lineHeight: 1.7
             }}>
-              Soluções completas em segurança eletrônica para
-              residências, empresas e condomínios.
-            </p>
+
+              <p style={{ fontSize: 15, }}>
+                Soluções completas em segurança eletrônica para
+                residências, empresas e condomínios.
+              </p>
+
+              <p style={{ fontSize: 12, }}>
+                CNPJ: 12.345.678/0001-90
+              </p>
+
+            </div>
+
             <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
 
               <a
-                href="https://www.instagram.com/grupoperesce"
+                href="https://www.instagram.com/p3seguranca/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -76,6 +94,26 @@ const Footer = () => {
                 onMouseLeave={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.1)'}
               >
                 <Instagram size={20} color="white" />
+              </a>
+
+              <a
+                href="https://www.facebook.com/p/P3-Segurança-Eletrônica-100084428342233/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: 12,
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.background = '#0066FF'}
+                onMouseLeave={(e) => e.target.style.background = 'rgba(255, 255, 255, 0.1)'}
+              >
+                <Facebook size={20} color="white" />
               </a>
 
             </div>
@@ -109,8 +147,7 @@ const Footer = () => {
                     padding: 0,
                     transition: 'color 0.3s ease',
                     fontFamily: 'inherit',
-
-
+                    textTransform: 'capitalize',
                   }}
 
                   onMouseEnter={(e) => e.currentTarget.style.color = '#00D4FF'}
@@ -138,21 +175,25 @@ const Footer = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 
               {contacts.map((item, index) => (
-                <a
-                  key={index}
-                  href={item?.href}
-                  target='_blank'
-                  style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}
-                >
-                  <item.icon size={20} color="#00D4FF" style={{ marginTop: 2, flexShrink: 0 }} />
-                  <span style={{
+                <Link to={item?.href} key={index}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: 12,
+                    textDecoration: 'none',
                     color: 'rgba(255, 255, 255, 0.6)',
                     fontSize: 15,
-                    // whiteSpace: 'pre-line'
-                  }}>
-                    {item.text}
-                  </span>
-                </a>
+                    transition: 'color 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#00D4FF'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}
+                >
+                  <item.icon size={20} color="#00D4FF" style={{ marginTop: 2, flexShrink: 0 }} />
+
+                  {item.text}
+
+                </Link>
+
               ))}
             </div>
           </div>

@@ -98,7 +98,9 @@ const Header = () => {
         <nav style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 40
+          justifyContent: 'space-between',
+          textAlign: 'center',
+          gap: 25
         }} className="desktop-nav">
           {_navItems.map((item, index) => (
             <a
@@ -111,6 +113,7 @@ const Header = () => {
                 color: 'rgba(255,255,255,0.7)',
                 cursor: 'pointer',
                 position: 'relative',
+                textTransform: 'uppercase',
 
               }}
               onMouseEnter={(e) => e.target.style.color = 'white'}
@@ -142,7 +145,7 @@ const Header = () => {
             onClick={() => handleNavClick('contato')}
             style={{ padding: '12px 24px', fontSize: 14 }}
           >
-            Orçamento Grátis
+            Solicite um Orçamento
           </button>
         </div>
 

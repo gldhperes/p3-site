@@ -24,14 +24,17 @@ const PoliticaPrivacidade = () => {
       display: 'inline-flex',
       alignItems: 'center',
       gap: '8px',
-      background: 'rgba(34, 197, 94, 0.15)',
-      border: '1px solid rgba(34, 197, 94, 0.3)',
+      // background: 'rgba(34, 197, 94, 0.15)',
+      // border: '1px solid rgba(34, 197, 94, 0.3)',
+      background: 'rgba(59, 130, 246, 0.15)',
+      border: '1px solid rgba(59, 130, 246, 0.3)',
       borderRadius: '50px',
       padding: '8px 16px',
       marginBottom: '20px'
     },
     badgeText: {
-      color: '#4ade80',
+      // color: '#4ade80',
+      color: '#60a5fa',
       fontSize: '13px',
       fontWeight: '600',
       textTransform: 'uppercase',
@@ -43,14 +46,15 @@ const PoliticaPrivacidade = () => {
       fontWeight: '700',
       color: '#ffffff',
       marginBottom: '16px',
-      lineHeight: '1.2'
+      lineHeight: '1.2',
+      textTransform: 'uppercase'
     },
     subtitle: {
       fontSize: '16px',
       color: '#9ca3af',
       maxWidth: '700px',
       margin: '0 auto 8px',
-      lineHeight: '1.6'
+      lineHeight: '1.6',
     },
     updateDate: {
       fontSize: '14px',
@@ -78,23 +82,26 @@ const PoliticaPrivacidade = () => {
     sectionTitle: {
       fontSize: '20px',
       fontWeight: '700',
-      color: '#4ade80',
+      // color: '#4ade80',
+      color: '#60a5fa',
       marginBottom: '16px',
       display: 'flex',
       alignItems: 'center',
-      gap: '12px'
+      gap: '12px',
+      textTransform: 'uppercase'
     },
     sectionNumber: {
       width: '32px',
       height: '32px',
-      background: 'rgba(34, 197, 94, 0.2)',
+      // background: 'rgba(34, 197, 94, 0.2)',
+      background: 'rgba(59, 130, 246, 0.2)',
       borderRadius: '8px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       fontSize: '14px',
       fontWeight: '700',
-      color: '#4ade80',
+      // color: '#4ade80',
       flexShrink: 0
     },
     text: {
@@ -122,16 +129,20 @@ const PoliticaPrivacidade = () => {
       top: '10px',
       width: '6px',
       height: '6px',
-      background: '#4ade80',
+      // background: '#4ade80',
+      background: '#60a5fa',
       borderRadius: '50%'
     },
     highlight: {
-      color: '#4ade80',
+      // color: '#4ade80',
+      color: '#60a5fa',
       fontWeight: '600'
     },
     infoBox: {
-      background: 'rgba(34, 197, 94, 0.1)',
-      border: '1px solid rgba(34, 197, 94, 0.2)',
+      // background: 'rgba(34, 197, 94, 0.1)',
+      // border: '1px solid rgba(34, 197, 94, 0.2)',
+      background: 'rgba(59, 130, 246, 0.15)',
+      border: '1px solid rgba(59, 130, 246, 0.3)',
       borderRadius: '12px',
       padding: '20px',
       marginTop: '24px'
@@ -139,7 +150,8 @@ const PoliticaPrivacidade = () => {
     infoTitle: {
       fontSize: '16px',
       fontWeight: '600',
-      color: '#4ade80',
+      // color: '#4ade80',
+      color: '#60a5fa',
       marginBottom: '12px',
       display: 'flex',
       alignItems: 'center',
@@ -149,7 +161,8 @@ const PoliticaPrivacidade = () => {
       display: 'inline-flex',
       alignItems: 'center',
       gap: '8px',
-      color: '#4ade80',
+      // color: '#4ade80',
+      color: '#60a5fa',
       textDecoration: 'none',
       fontSize: '14px',
       fontWeight: '500',
@@ -185,10 +198,10 @@ const PoliticaPrivacidade = () => {
 
           <div style={styles.content}>
             <p style={styles.intro}>
-              A <span style={styles.highlight}>P3 SEGURANÇA ELETRÔNICA</span> respeita a privacidade e a proteção dos dados 
-              pessoais de seus clientes, parceiros e usuários, comprometendo-se a tratar essas 
-              informações de forma transparente, segura e em conformidade com a <span style={styles.highlight}>Lei Geral de 
-              Proteção de Dados – LGPD (Lei nº 13.709/2018)</span>.
+              A <span style={styles.highlight}>P3 SEGURANÇA ELETRÔNICA</span> respeita a privacidade e a proteção dos dados
+              pessoais de seus clientes, parceiros e usuários, comprometendo-se a tratar essas
+              informações de forma transparente, segura e em conformidade com a <span style={styles.highlight}>Lei Geral de
+                Proteção de Dados – LGPD (Lei nº 13.709/2018)</span>.
             </p>
 
             {/* Seção 1 */}
@@ -225,7 +238,7 @@ const PoliticaPrivacidade = () => {
                 </li>
               </ul>
               <p style={styles.text}>
-                Os dados podem incluir: nome, telefone, e-mail, endereço, empresa e outras 
+                Os dados podem incluir: nome, telefone, e-mail, endereço, empresa e outras
                 informações necessárias para atendimento e prestação de serviços.
               </p>
             </motion.div>
@@ -284,7 +297,7 @@ const PoliticaPrivacidade = () => {
                 Compartilhamento de Dados
               </div>
               <p style={styles.text}>
-                A <span style={styles.highlight}>P3 SEGURANÇA ELETRÔNICA</span> não vende nem comercializa dados pessoais. Os 
+                A <span style={styles.highlight}>P3 SEGURANÇA ELETRÔNICA</span> não vende nem comercializa dados pessoais. Os
                 dados poderão ser compartilhados apenas quando necessário para:
               </p>
               <ul style={styles.list}>
@@ -316,7 +329,7 @@ const PoliticaPrivacidade = () => {
                 Armazenamento e Segurança
               </div>
               <p style={styles.text}>
-                Adotamos medidas técnicas e administrativas para proteger os dados pessoais 
+                Adotamos medidas técnicas e administrativas para proteger os dados pessoais
                 contra acessos não autorizados, vazamentos, perdas ou alterações indevidas.
               </p>
             </motion.div>
@@ -352,7 +365,7 @@ const PoliticaPrivacidade = () => {
                   Revogar consentimentos
                 </li>
               </ul>
-              
+
               <div style={styles.infoBox}>
                 <div style={styles.infoTitle}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -362,7 +375,7 @@ const PoliticaPrivacidade = () => {
                   </svg>
                   Como exercer seus direitos
                 </div>
-                <p style={{...styles.text, margin: 0, fontSize: '14px'}}>
+                <p style={{ ...styles.text, margin: 0, fontSize: '14px' }}>
                   As solicitações devem ser feitas pelos canais oficiais de contato da empresa.
                 </p>
               </div>
@@ -381,8 +394,8 @@ const PoliticaPrivacidade = () => {
                 Cookies
               </div>
               <p style={styles.text}>
-                Utilizamos cookies para melhorar a experiência do usuário, analisar métricas de 
-                acesso e otimizar conteúdos. O usuário pode gerenciar o uso de cookies 
+                Utilizamos cookies para melhorar a experiência do usuário, analisar métricas de
+                acesso e otimizar conteúdos. O usuário pode gerenciar o uso de cookies
                 diretamente em seu navegador.
               </p>
             </motion.div>
@@ -400,7 +413,7 @@ const PoliticaPrivacidade = () => {
                 Alterações desta Política
               </div>
               <p style={styles.text}>
-                Esta Política de Privacidade pode ser atualizada a qualquer momento para 
+                Esta Política de Privacidade pode ser atualizada a qualquer momento para
                 adequação legal ou melhoria dos processos.
               </p>
             </motion.div>

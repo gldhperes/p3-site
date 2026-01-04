@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Camera, ArrowRight } from 'lucide-react';
 
+import Tecnico_img from '../../assets/tecnico.jpg';
+
 // UTILS
 import navItems from '../../utils/navItems.js';
 
@@ -20,14 +22,20 @@ const HeroSection = () => {
       alignItems: 'center',
       overflow: 'hidden'
     }}>
+
       {/* Background Pattern */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        backgroundImage: `
-          radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%)
-        `
+        // backgroundImage: `
+        //   radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+        //   radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%)
+        // `
+        backgroundImage: `url(${Tecnico_img})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        opacity: 0.1,
+        filter: 'blur(5px)'
       }} />
 
       {/* Grid Pattern */}
@@ -150,7 +158,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -179,7 +187,7 @@ const HeroSection = () => {
             }} />
           </div>
 
-          {/* Floating Card */}
+          
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -212,7 +220,7 @@ const HeroSection = () => {
               <div style={{ fontSize: 28, fontWeight: 800, color: '#0A2540' }}>2.847</div>
             </div>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* Scroll Indicator */}
