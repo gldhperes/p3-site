@@ -69,7 +69,7 @@ const Footer = () => {
               </p>
 
               <p style={{ fontSize: 12, }}>
-                CNPJ: 12.345.678/0001-90
+                CNPJ: 20.040.171/0001-51
               </p>
 
             </div>

@@ -21,7 +21,7 @@ const Header = () => {
   const [_navItems, setNavItems] = useState(navItems);
 
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
 
 
@@ -41,16 +41,17 @@ const Header = () => {
   }, []);
 
   const handleNavClick = (section) => {
+  if (section === navRoutes.eventos) {
+    window.location.href = navRoutes.eventos.toLowerCase();
+  } else {
+    setIsMenuOpen(false);
 
-    
-    if (section === navRoutes.eventos) {
-      window.location.href = navRoutes.eventos.toLowerCase();
-    }
-    else {
+    // espera o menu fechar (tempo da animação)
+    setTimeout(() => {
       scrollToSectionFunc(section);
-      setIsMenuOpen(false);
-    }
-  };
+    }, 300); // ajuste conforme sua animação
+  }
+};
 
   return (
     <motion.header
@@ -103,7 +104,7 @@ const Header = () => {
           gap: 25
         }} className="desktop-nav">
           {_navItems.map((item, index) => (
-            <a
+            <button
               key={index}
               onClick={() => handleNavClick(item.href.toLowerCase())}
               style={{
@@ -122,7 +123,7 @@ const Header = () => {
               {item.text}
 
               {item?.badge === true && <BadgeComponent size={12} top={"-5px"} right={"-12px"} />}
-            </a>
+            </button>
           ))}
         </nav>
 
@@ -175,6 +176,7 @@ const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             style={{
               background: 'rgba(10, 37, 64, 0.98)',
+              borderRadius: 15,
               padding: '24px',
               display: 'flex',
               flexDirection: 'column',
@@ -182,17 +184,17 @@ const Header = () => {
               marginTop: 10,
             }}
           >
-            {navItems.map((item, index) => (
-              <a
+            {_navItems.map((item, index) => (
+              <button
                 key={index}
                 onClick={() => handleNavClick(item.href.toLowerCase())}
-                style={{ display: 'flex', alignItems: 'flex-start', gap: 12, color: 'rgba(255,255,255,0.7)', cursor: 'pointer', position: 'relative' }}
+                style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', gap: 12, color: 'rgba(255,255,255,0.7)', cursor: 'pointer', position: 'relative' }}
                 onMouseEnter={(e) => e.target.style.color = 'white'}
                 onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.7)'}
               >
                 {item?.badge === true && <BadgeComponent size={12} top={"-5px"} left={"60px"} />}
                 {item.text}
-              </a>
+              </button>
             ))}
 
 

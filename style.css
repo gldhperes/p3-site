@@ -18,7 +18,21 @@ body {
 a {
     text-decoration: none;
     outline: none;
-    cursor: 'pointer'
+    cursor: pointer;
+}
+
+button {
+    all: unset;
+    /* remove TODOS os estilos nativos */
+    display: inline-flex;
+    /* mantém layout flexível */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    /* evita bugs mobile */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 ::selection {
